@@ -12,7 +12,7 @@ class TabBarController: UITabBarController{
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        tabBar.backgroundColor = .systemGray5
+        tabBar.backgroundColor = .systemBackground
         
         buildViewController()
     }
@@ -29,4 +29,8 @@ class TabBarController: UITabBarController{
         
         viewControllers = [mainViewController, subViewController, alarmViewContorller, bookmarkViewController]
     }
+}
+
+#Preview {
+    TabBarController()
 }
