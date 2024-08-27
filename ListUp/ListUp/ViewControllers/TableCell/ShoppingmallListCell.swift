@@ -13,6 +13,7 @@ class ShoppingmallListCell: UITableViewCell{
        let scrollView = UIScrollView()
         scrollView.contentSize = CGSize(width: 850, height: 80)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
     
@@ -25,15 +26,20 @@ class ShoppingmallListCell: UITableViewCell{
         return stackView
     }()
     
-    let shoppingmalls: [UIImage] = [._11St, .auction, .coupang, .emart, .gmarket, .homeplus, .kyobo, .lotteon, .navershopping, .shinsegae]
+    var shoppingmalls: [UIImage] = []
     
     lazy var buttonAction: ()-> () = {}
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         contentView.addSubview(listScrollView)
         listScrollView.addSubview(listStackView)
+        
+        for i in 1...9{
+            if let image = UIImage(named: "mallicon\(i)"){
+                shoppingmalls.append(image)
+            }
+        }
         
         for image in shoppingmalls{
             let button = UIButton()
@@ -62,8 +68,9 @@ class ShoppingmallListCell: UITableViewCell{
         NSLayoutConstraint.activate([
             listScrollView.topAnchor.constraint(equalTo: contentView.topAnchor),
             listScrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            listScrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            listScrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             listScrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            listScrollView.heightAnchor.constraint(equalToConstant: 80)
 
         ])
     }
