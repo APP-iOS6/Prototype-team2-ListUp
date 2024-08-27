@@ -38,7 +38,7 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 20    // 메인 컨텐츠 섹션 임의로 20개로 설정
+        return section == 0 ? 1 : 12    // 메인 컨텐츠 섹션 임의로 20개로 설정
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -58,9 +58,9 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubViewCollectionViewCell", for: indexPath) as? SubViewCollectionViewCell else { return UICollectionViewCell() }
-            cell.mainImageView.image = UIImage(named: ["subimage1","subimage2","subimage3","subimage4"].randomElement()!)
-            cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰"].randomElement()!
-            cell.hashTagTextLabel.text = ["#3000원 #누구나", "#만원이상 #몇번이든"].randomElement()!
+            cell.mainImageView.image = UIImage(named: "subimage\(indexPath.row + 1)")
+            cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰", "인터라켄 3% 웰컴쿠폰", "2024 새해 쿠폰선물"].randomElement()!
+            cell.hashTagTextLabel.text = ["#3000원 #누구나", "#만원이상 #몇번이든", "#중복적용 #누구나", "#네이버쇼핑 5~20%"].randomElement()!
             cell.dateTextLabel.text = "24.02.01 ~ 24.04.01"
             cell.heartImageView.addAction(UIAction { _ in
                 self.isBookMarked.toggle()
