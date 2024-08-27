@@ -18,6 +18,10 @@
 		25D5FF1D2C7D58D200DCC01C /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF1C2C7D58D200DCC01C /* SubViewController.swift */; };
 		25D5FF1F2C7D58F200DCC01C /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */; };
 		25D5FF212C7D591700DCC01C /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */; };
+		25D5FF452C7D9A2400DCC01C /* MainBanerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF442C7D9A2400DCC01C /* MainBanerCell.swift */; };
+		25D5FF472C7D9A4200DCC01C /* ShoppingmallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF462C7D9A4200DCC01C /* ShoppingmallListCell.swift */; };
+		25D5FF492C7D9A6000DCC01C /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF482C7D9A6000DCC01C /* RecommendCell.swift */; };
+		25D5FF4C2C7DB7E000DCC01C /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF4B2C7DB7E000DCC01C /* MainCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		25D5FF1C2C7D58D200DCC01C /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 		25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		25D5FF442C7D9A2400DCC01C /* MainBanerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBanerCell.swift; sourceTree = "<group>"; };
+		25D5FF462C7D9A4200DCC01C /* ShoppingmallListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingmallListCell.swift; sourceTree = "<group>"; };
+		25D5FF482C7D9A6000DCC01C /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		25D5FF4B2C7DB7E000DCC01C /* MainCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 		25D5FF1B2C7D56E600DCC01C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				25D5FF432C7D9A0A00DCC01C /* TableCell */,
+				25D5FF4A2C7DB7BC00DCC01C /* CollectionCell */,
 				25D5FF222C7D591E00DCC01C /* common */,
 				25D5FF172C7D56A800DCC01C /* MainViewController.swift */,
 				25D5FF1C2C7D58D200DCC01C /* SubViewController.swift */,
@@ -96,6 +106,24 @@
 				25D5FF192C7D56D000DCC01C /* BaseViewController.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		25D5FF432C7D9A0A00DCC01C /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				25D5FF442C7D9A2400DCC01C /* MainBanerCell.swift */,
+				25D5FF462C7D9A4200DCC01C /* ShoppingmallListCell.swift */,
+				25D5FF482C7D9A6000DCC01C /* RecommendCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		25D5FF4A2C7DB7BC00DCC01C /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				25D5FF4B2C7DB7E000DCC01C /* MainCollectionCell.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,10 +197,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D5FF1F2C7D58F200DCC01C /* AlarmViewController.swift in Sources */,
+				25D5FF472C7D9A4200DCC01C /* ShoppingmallListCell.swift in Sources */,
 				25D5FF062C7D54A100DCC01C /* NavigationController.swift in Sources */,
 				25D5FF162C7D561E00DCC01C /* TabBarController.swift in Sources */,
+				25D5FF492C7D9A6000DCC01C /* RecommendCell.swift in Sources */,
 				25D5FF1D2C7D58D200DCC01C /* SubViewController.swift in Sources */,
 				25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */,
+				25D5FF452C7D9A2400DCC01C /* MainBanerCell.swift in Sources */,
+				25D5FF4C2C7DB7E000DCC01C /* MainCollectionCell.swift in Sources */,
 				25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */,
 				25D5FF182C7D56A800DCC01C /* MainViewController.swift in Sources */,
 				25D5FF212C7D591700DCC01C /* BookmarkViewController.swift in Sources */,
