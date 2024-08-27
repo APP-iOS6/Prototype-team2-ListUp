@@ -43,14 +43,14 @@ class BaseViewController: UIViewController{
     public func setupInterface(){
         view.addSubview(stackView)
         stackView.addArrangedSubview(searchView)
-        stackView.addArrangedSubview(tabStackView)
-        
-        
-        for _ in 0..<4{
-            let button = UIButton()
-            button.setTitle("메뉴 이름", for: .normal)
-            tabStackView.addArrangedSubview(button)
-        }
+//        stackView.addArrangedSubview(tabStackView)
+//        
+//        
+//        for _ in 0..<4{
+//            let button = UIButton()
+//            button.setTitle("메뉴 이름", for: .normal)
+//            tabStackView.addArrangedSubview(button)
+//        }
     }
     public func setupLayOut(){
         let safeArea = view.safeAreaLayoutGuide
@@ -60,7 +60,7 @@ class BaseViewController: UIViewController{
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            //            stackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            stackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
         ])
