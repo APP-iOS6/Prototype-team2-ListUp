@@ -19,6 +19,8 @@ class BaseViewController: UIViewController{
         let imageView = UIImageView()
         imageView.image = .group47
         imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlarm)))
         return imageView
     }()
     
@@ -107,6 +109,12 @@ class BaseViewController: UIViewController{
         ])
     }
     
+    @objc func showAlarm(_ sender: UITapGestureRecognizer) {
+        print("show alarm")
+        let vc = SampleAlarmViewController()
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
+    }
 }
 
 

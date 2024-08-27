@@ -19,6 +19,7 @@
 		25D5FF1F2C7D58F200DCC01C /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */; };
 		25D5FF212C7D591700DCC01C /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */; };
 		420B38892C7DBA5900206B36 /* FilterSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */; };
+		420B388B2C7DC96E00206B36 /* SampleAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetViewController.swift; sourceTree = "<group>"; };
+		420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAlarmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				25D5FF192C7D56D000DCC01C /* BaseViewController.swift */,
 				420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */,
+				420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				25D5FF1F2C7D58F200DCC01C /* AlarmViewController.swift in Sources */,
 				25D5FF062C7D54A100DCC01C /* NavigationController.swift in Sources */,
 				25D5FF162C7D561E00DCC01C /* TabBarController.swift in Sources */,
+				420B388B2C7DC96E00206B36 /* SampleAlarmViewController.swift in Sources */,
 				25D5FF1D2C7D58D200DCC01C /* SubViewController.swift in Sources */,
 				25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */,
 				25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */,
