@@ -8,7 +8,7 @@
 import UIKit
 
 class BaseViewController: UIViewController{
-    lazy var stackView: UIStackView = {
+    public lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
