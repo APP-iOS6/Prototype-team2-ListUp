@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E024492C7DAC8A005C2153 /* LastestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */; };
+		18E0244B2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */; };
+		18E024502C7DAEE6005C2153 /* UIColor + Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0244F2C7DAEE6005C2153 /* UIColor + Memo.swift */; };
 		25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF012C7D54A100DCC01C /* AppDelegate.swift */; };
 		25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF032C7D54A100DCC01C /* SceneDelegate.swift */; };
 		25D5FF062C7D54A100DCC01C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF052C7D54A100DCC01C /* NavigationController.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestCollectionViewCell.swift; sourceTree = "<group>"; };
+		18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		18E0244F2C7DAEE6005C2153 /* UIColor + Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Memo.swift"; sourceTree = "<group>"; };
 		25D5FEFE2C7D54A100DCC01C /* ListUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D5FF012C7D54A100DCC01C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25D5FF032C7D54A100DCC01C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,9 +53,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18E0244E2C7DAE9B005C2153 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18E0244F2C7DAEE6005C2153 /* UIColor + Memo.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		25D5FEF52C7D54A100DCC01C = {
 			isa = PBXGroup;
 			children = (
+				18E0244E2C7DAE9B005C2153 /* Extension */,
 				25D5FF002C7D54A100DCC01C /* ListUp */,
 				25D5FEFF2C7D54A100DCC01C /* Products */,
 			);
@@ -84,6 +99,8 @@
 				25D5FF222C7D591E00DCC01C /* common */,
 				25D5FF172C7D56A800DCC01C /* MainViewController.swift */,
 				25D5FF1C2C7D58D200DCC01C /* SubViewController.swift */,
+				18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */,
+				18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */,
 				25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */,
 				25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */,
 			);
@@ -171,10 +188,13 @@
 				25D5FF1F2C7D58F200DCC01C /* AlarmViewController.swift in Sources */,
 				25D5FF062C7D54A100DCC01C /* NavigationController.swift in Sources */,
 				25D5FF162C7D561E00DCC01C /* TabBarController.swift in Sources */,
+				18E024492C7DAC8A005C2153 /* LastestCollectionViewCell.swift in Sources */,
 				25D5FF1D2C7D58D200DCC01C /* SubViewController.swift in Sources */,
+				18E024502C7DAEE6005C2153 /* UIColor + Memo.swift in Sources */,
 				25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */,
 				25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */,
 				25D5FF182C7D56A800DCC01C /* MainViewController.swift in Sources */,
+				18E0244B2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift in Sources */,
 				25D5FF212C7D591700DCC01C /* BookmarkViewController.swift in Sources */,
 				25D5FF1A2C7D56D000DCC01C /* BaseViewController.swift in Sources */,
 			);
