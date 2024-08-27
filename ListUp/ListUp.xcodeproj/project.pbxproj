@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E024492C7DAC8A005C2153 /* LastestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */; };
+		18E0244B2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */; };
 		25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF012C7D54A100DCC01C /* AppDelegate.swift */; };
 		25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF032C7D54A100DCC01C /* SceneDelegate.swift */; };
 		25D5FF062C7D54A100DCC01C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF052C7D54A100DCC01C /* NavigationController.swift */; };
@@ -21,15 +23,17 @@
 		420B38822C7D6AA100206B36 /* BookMarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38812C7D6AA100206B36 /* BookMarkCollectionViewCell.swift */; };
 		420B38852C7D6E5000206B36 /* UIColor+Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38842C7D6E5000206B36 /* UIColor+Memo.swift */; };
 		420B38872C7D9BFA00206B36 /* TopImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38862C7D9BFA00206B36 /* TopImageCollectionViewCell.swift */; };
+		420B38892C7DBA5900206B36 /* FilterSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */; };
+		420B388B2C7DC96E00206B36 /* SampleAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */; };
 		420B388E2C7DDCED00206B36 /* MainBanerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388D2C7DDCED00206B36 /* MainBanerCell.swift */; };
 		420B38902C7DDCF100206B36 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388F2C7DDCF100206B36 /* RecommendCell.swift */; };
 		420B38922C7DDCF400206B36 /* ShoppingmallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38912C7DDCF400206B36 /* ShoppingmallListCell.swift */; };
 		420B38952C7DDD1700206B36 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38942C7DDD1700206B36 /* MainCollectionCell.swift */; };
-		420B38892C7DBA5900206B36 /* FilterSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */; };
-		420B388B2C7DC96E00206B36 /* SampleAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastestCollectionViewCell.swift; sourceTree = "<group>"; };
+		18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		25D5FEFE2C7D54A100DCC01C /* ListUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D5FF012C7D54A100DCC01C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25D5FF032C7D54A100DCC01C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,12 +50,12 @@
 		420B38812C7D6AA100206B36 /* BookMarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		420B38842C7D6E5000206B36 /* UIColor+Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Memo.swift"; sourceTree = "<group>"; };
 		420B38862C7D9BFA00206B36 /* TopImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetViewController.swift; sourceTree = "<group>"; };
+		420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAlarmViewController.swift; sourceTree = "<group>"; };
 		420B388D2C7DDCED00206B36 /* MainBanerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBanerCell.swift; sourceTree = "<group>"; };
 		420B388F2C7DDCF100206B36 /* RecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		420B38912C7DDCF400206B36 /* ShoppingmallListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingmallListCell.swift; sourceTree = "<group>"; };
 		420B38942C7DDD1700206B36 /* MainCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionCell.swift; path = ListUp/ViewControllers/MainCollectionCell.swift; sourceTree = SOURCE_ROOT; };
-		420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSheetViewController.swift; sourceTree = "<group>"; };
-		420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAlarmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				420B38932C7DDCFB00206B36 /* TableCell */,
 				420B38962C7DDD3300206B36 /* CollectionCell */,
 				25D5FF1C2C7D58D200DCC01C /* SubViewController.swift */,
+				18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */,
+				18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */,
 				25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */,
 				25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */,
 				420B38942C7DDD1700206B36 /* MainCollectionCell.swift */,
@@ -227,6 +233,8 @@
 				420B388B2C7DC96E00206B36 /* SampleAlarmViewController.swift in Sources */,
 				25D5FF1D2C7D58D200DCC01C /* SubViewController.swift in Sources */,
 				420B38822C7D6AA100206B36 /* BookMarkCollectionViewCell.swift in Sources */,
+				18E024492C7DAC8A005C2153 /* LastestCollectionViewCell.swift in Sources */,
+				25D5FF1D2C7D58D200DCC01C /* SubViewController.swift in Sources */,
 				25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */,
 				25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */,
 				420B38872C7D9BFA00206B36 /* TopImageCollectionViewCell.swift in Sources */,
@@ -234,6 +242,7 @@
 				420B38902C7DDCF100206B36 /* RecommendCell.swift in Sources */,
 				420B38892C7DBA5900206B36 /* FilterSheetViewController.swift in Sources */,
 				25D5FF182C7D56A800DCC01C /* MainViewController.swift in Sources */,
+				18E0244B2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift in Sources */,
 				25D5FF212C7D591700DCC01C /* BookmarkViewController.swift in Sources */,
 				420B38922C7DDCF400206B36 /* ShoppingmallListCell.swift in Sources */,
 				25D5FF1A2C7D56D000DCC01C /* BaseViewController.swift in Sources */,
