@@ -59,7 +59,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         NSLayoutConstraint.activate([
             collectionView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
-        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true // Set image view height as needed
+        imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true // Set image view height as needed
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
