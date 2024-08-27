@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SubViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -85,8 +86,19 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
-    
+
+    // 셀 선택시 사파리뷰 띄우기
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         if let url = URL(string: "https://www.naver.com") {
+             let viewController = SFSafariViewController(url: url)
+             
+             viewController.modalPresentationStyle = .pageSheet
+             self.present(viewController, animated: true)
+         }
+     }
 }
+
+
 
 #Preview {
     SubViewController()
