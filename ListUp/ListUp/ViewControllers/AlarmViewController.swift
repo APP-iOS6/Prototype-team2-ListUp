@@ -57,7 +57,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            collectionView.heightAnchor.constraint(equalTo: view.heightAnchor)
+//            collectionView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
         imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true // Set image view height as needed
     }
@@ -95,7 +95,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         let totalSpacing = (padding * 3) + (sectionInsetPadding * 2) // 추가된 패딩을 포함
         let width = (collectionView.frame.width - totalSpacing) / 4
         
-        return CGSize(width: width, height: 50)
+        return CGSize(width: width, height: 35)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

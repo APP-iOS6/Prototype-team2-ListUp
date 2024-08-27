@@ -101,6 +101,6 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
 
 
 
-#Preview {
-    SubViewController()
-}
+//#Preview {
+//    SubViewController()
+//}
