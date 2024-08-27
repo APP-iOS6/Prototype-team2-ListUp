@@ -21,6 +21,10 @@
 		420B38822C7D6AA100206B36 /* BookMarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38812C7D6AA100206B36 /* BookMarkCollectionViewCell.swift */; };
 		420B38852C7D6E5000206B36 /* UIColor+Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38842C7D6E5000206B36 /* UIColor+Memo.swift */; };
 		420B38872C7D9BFA00206B36 /* TopImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38862C7D9BFA00206B36 /* TopImageCollectionViewCell.swift */; };
+		420B388E2C7DDCED00206B36 /* MainBanerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388D2C7DDCED00206B36 /* MainBanerCell.swift */; };
+		420B38902C7DDCF100206B36 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388F2C7DDCF100206B36 /* RecommendCell.swift */; };
+		420B38922C7DDCF400206B36 /* ShoppingmallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38912C7DDCF400206B36 /* ShoppingmallListCell.swift */; };
+		420B38952C7DDD1700206B36 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38942C7DDD1700206B36 /* MainCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		420B38812C7D6AA100206B36 /* BookMarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		420B38842C7D6E5000206B36 /* UIColor+Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Memo.swift"; sourceTree = "<group>"; };
 		420B38862C7D9BFA00206B36 /* TopImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		420B388D2C7DDCED00206B36 /* MainBanerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBanerCell.swift; sourceTree = "<group>"; };
+		420B388F2C7DDCF100206B36 /* RecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		420B38912C7DDCF400206B36 /* ShoppingmallListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingmallListCell.swift; sourceTree = "<group>"; };
+		420B38942C7DDD1700206B36 /* MainCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionCell.swift; path = ListUp/ViewControllers/MainCollectionCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,14 +96,13 @@
 		25D5FF1B2C7D56E600DCC01C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				25D5FF432C7D9A0A00DCC01C /* TableCell */,
-				25D5FF4A2C7DB7BC00DCC01C /* CollectionCell */,
 				25D5FF222C7D591E00DCC01C /* common */,
-				25D5FF172C7D56A800DCC01C /* MainViewController.swift */,
+				420B38932C7DDCFB00206B36 /* TableCell */,
+				420B38962C7DDD3300206B36 /* CollectionCell */,
 				25D5FF1C2C7D58D200DCC01C /* SubViewController.swift */,
 				25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */,
 				25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */,
-				420B38812C7D6AA100206B36 /* BookMarkCollectionViewCell.swift */,
+				420B38942C7DDD1700206B36 /* MainCollectionCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +122,25 @@
 				420B38842C7D6E5000206B36 /* UIColor+Memo.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		420B38932C7DDCFB00206B36 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				420B388D2C7DDCED00206B36 /* MainBanerCell.swift */,
+				420B388F2C7DDCF100206B36 /* RecommendCell.swift */,
+				420B38912C7DDCF400206B36 /* ShoppingmallListCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		420B38962C7DDD3300206B36 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				420B38812C7D6AA100206B36 /* BookMarkCollectionViewCell.swift */,
+				25D5FF172C7D56A800DCC01C /* MainViewController.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,19 +214,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D5FF1F2C7D58F200DCC01C /* AlarmViewController.swift in Sources */,
-				25D5FF472C7D9A4200DCC01C /* ShoppingmallListCell.swift in Sources */,
 				25D5FF062C7D54A100DCC01C /* NavigationController.swift in Sources */,
 				25D5FF162C7D561E00DCC01C /* TabBarController.swift in Sources */,
 				420B38852C7D6E5000206B36 /* UIColor+Memo.swift in Sources */,
+				420B38952C7DDD1700206B36 /* MainCollectionCell.swift in Sources */,
 				25D5FF1D2C7D58D200DCC01C /* SubViewController.swift in Sources */,
 				420B38822C7D6AA100206B36 /* BookMarkCollectionViewCell.swift in Sources */,
 				25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */,
-				25D5FF452C7D9A2400DCC01C /* MainBanerCell.swift in Sources */,
-				25D5FF4C2C7DB7E000DCC01C /* MainCollectionCell.swift in Sources */,
 				25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */,
 				420B38872C7D9BFA00206B36 /* TopImageCollectionViewCell.swift in Sources */,
+				420B388E2C7DDCED00206B36 /* MainBanerCell.swift in Sources */,
+				420B38902C7DDCF100206B36 /* RecommendCell.swift in Sources */,
 				25D5FF182C7D56A800DCC01C /* MainViewController.swift in Sources */,
 				25D5FF212C7D591700DCC01C /* BookmarkViewController.swift in Sources */,
+				420B38922C7DDCF400206B36 /* ShoppingmallListCell.swift in Sources */,
 				25D5FF1A2C7D56D000DCC01C /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
