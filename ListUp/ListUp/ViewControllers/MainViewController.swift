@@ -38,8 +38,7 @@ class MainViewController: BaseViewController{
     
     override func setupLayOut() {
         super.setupLayOut()
-        
-        
+    
     }
     
     
@@ -47,6 +46,9 @@ class MainViewController: BaseViewController{
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
+
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -57,6 +59,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         let shoppingmallListCell: ShoppingmallListCell = tableView.dequeueReusableCell(withIdentifier: "ShoppingmallListCell", for: indexPath) as! ShoppingmallListCell
         
         let recommendCell: RecommendCell = tableView.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as! RecommendCell
+//        let recommendCell: RecommendCell = RecommendCell()
         
         switch indexPath.row{
         case 0:
@@ -75,7 +78,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
             }
             return shoppingmallListCell
         case 2:
-            self.mainTableView.rowHeight = 1200
+            self.mainTableView.rowHeight = 1400
+            recommendCell.tappedAction = {() -> () in
+                if let url = URL(string: "https://www.naver.com") {
+                    let viewController = SFSafariViewController(url: url)
+                    
+                    viewController.modalPresentationStyle = .pageSheet
+                    self.present(viewController, animated: true)
+                }
+            }
             return recommendCell
         default:
             return mainBanerCell
