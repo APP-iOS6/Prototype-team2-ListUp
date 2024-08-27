@@ -13,6 +13,7 @@ class MainBanerCell: UITableViewCell{
         scrollView.contentSize = CGSize(width: 3600, height: 300)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
     
@@ -23,15 +24,6 @@ class MainBanerCell: UITableViewCell{
         //stackView.alignment = .leading
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-    }()
-    
-    lazy var bannerImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = .longmainimage
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
     }()
     
     let banners: [UIImage] = [.mainimage1, .mainimage2, .mainimage3, .mainimage4, .mainimage5, .mainimage6, .mainimage7]
@@ -64,7 +56,6 @@ class MainBanerCell: UITableViewCell{
                 bannerScrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
                 bannerScrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 bannerScrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                bannerImageView.heightAnchor.constraint(equalToConstant: 300)
             ])
         }
     
