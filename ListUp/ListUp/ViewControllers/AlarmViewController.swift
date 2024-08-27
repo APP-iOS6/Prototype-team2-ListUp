@@ -8,7 +8,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
                         ("가전/디지털", Array(repeating: false, count: 7)),
                         ("패션", Array(repeating: false, count: 12))]
     
-    let imageForButton: UIImage = UIImage(named: "gradiant")!  // Replace with your image
+    let imageForButton: UIImage = UIImage(named: "select")!  // Replace with your image
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -24,17 +24,16 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         return collectionView
     }()
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
-        imageView.isHidden = false// Initially hidden
+        imageView.isHidden = false // Initially hidden
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
     
     let sections = [
-       
         ("쇼핑몰", ["네이버 쇼핑", "쿠팡", "홈플러스", "옥션", "11번가", "G마켓", "롯데 온", "신세계", "트레이더스"]),
         ("도서", ["교보문고", "예스24", "리디북스", "네이버 시리즈", "카카오페이지", "문피아", "조아라", "밀리의 서재"]),
         ("가전/디지털", ["하이마트", "인터파크", "전자랜드", "다나와", "삼성전자 스토어", "애플 스토어", "KT 스토어"]),
@@ -46,10 +45,11 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         setupCollectionView()
         setupImageView()
     }
+    
     private func setupImageView() {
-            imageView.image = UIImage(named: "longalarm") // Replace "gradiant" with your image name
-            imageView.isHidden = false // Show the imageView if it was hidden initially
-        }
+        imageView.image = UIImage(named: "longalarm") // Replace "longalarm" with your image name
+        imageView.isHidden = false // Show the imageView if it was hidden initially
+    }
     
     private func setupCollectionView() {
         stackView.addArrangedSubview(imageView)
@@ -97,6 +97,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         
         return CGSize(width: width, height: 50)
     }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as? SectionHeaderView else {
             return UICollectionReusableView()
@@ -170,7 +171,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
             ])
             
             // Ensure imageView is on top of button
-            button.sendSubviewToBack(imageView)
+            contentView.bringSubviewToFront(imageView)
         }
         
         required init?(coder: NSCoder) {
@@ -182,16 +183,20 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
             
             if let image = image {
                 imageView.image = image
-                imageView.alpha = 0.9 // 이미지 투명도 조정 (0.0 ~ 1.0 범위)
+                imageView.alpha = 1.0 // 이미지 투명도 조정 (0.0 ~ 1.0 범위)
+                imageView.layer.cornerRadius = 3
             }
         }
 
         func showImage() {
             imageView.isHidden = false
+           
+           
         }
 
         func hideImage() {
             imageView.isHidden = true
+           
         }
         
         override func prepareForReuse() {
@@ -200,7 +205,6 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
             hideImage() // Ensure image is hidden on reuse
         }
     }
-
     
     // 섹션 헤더 뷰
     class SectionHeaderView: UICollectionReusableView {
