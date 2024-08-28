@@ -102,35 +102,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     }
     
 
-    // 섹션 헤더 뷰
-    class SectionHeaderView: UICollectionReusableView {
-        
-        let label: UILabel = {
-            let label = UILabel()
-            label.textAlignment = .center
-            label.font = UIFont.boldSystemFont(ofSize: 18)
-            label.textColor = .black
-            return label
-        }()
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            addSubview(label)
-            label.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                label.centerXAnchor.constraint(equalTo: centerXAnchor),
-                label.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        func configure(with title: String) {
-            label.text = title
-        }
-    }
+    
 }
 
 extension AlarmViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -164,6 +136,20 @@ extension AlarmViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         let sectionTitle = sections[indexPath.section].0
         headerView.configure(with: sectionTitle)
+        
+        headerView.buttonAction = {()-> () in
+            headerView.isSelected.toggle()
+            if headerView.isSelected{
+                headerView.allSelectButton.setImage(.checkbox, for: .normal)
+            }else{
+                headerView.allSelectButton.setImage(.box, for: .normal)
+            }
+            
+            for i in 0..<self.sections[indexPath.section].1.count{
+                let cell = collectionView.cellForItem(at: [indexPath.section, i]) as? AlarmButtonCollectionViewCell
+                cell?.buttonSelected = headerView.isSelected
+            }
+        }
         return headerView
     }
     
@@ -173,6 +159,56 @@ extension AlarmViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
 }
 
+// 섹션 헤더 뷰
+class SectionHeaderView: UICollectionReusableView {
+    
+    var buttonAction : ()->() = {}
+    var isSelected : Bool = false
+    
+    let label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var allSelectButton: UIButton = {
+        let button = UIButton()
+        button.setImage(.box, for: .normal)
+        button.frame.size = CGSize(width: 10, height: 10)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction(identifier: .init("AllSelect")){_ in
+            self.buttonAction()
+        }, for: .touchUpInside)
+        return button
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(label)
+        addSubview(allSelectButton)
+        
+        isSelected = false
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -6),
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            allSelectButton.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 6),
+            allSelectButton.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with title: String) {
+        label.text = title
+    }
+}
 
 // #Preview section removed for compatibility
 #Preview{

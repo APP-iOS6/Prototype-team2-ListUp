@@ -17,6 +17,7 @@ class AlarmButtonCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    
     lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.black, for: .normal)
@@ -24,9 +25,10 @@ class AlarmButtonCollectionViewCell: UICollectionViewCell {
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.red.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addAction(UIAction{_ in
+        button.addAction(UIAction(identifier: .init("Check")){_ in
             self.buttonAction()
         }, for: .touchUpInside)
+        
         return button
     }()
     
@@ -64,6 +66,6 @@ class AlarmButtonCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.button.backgroundColor = .white
+        //self.buttonSelected = false
     }
 }
