@@ -27,6 +27,7 @@ class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICo
         collectionView.backgroundColor = .systemBackground
         collectionView.register(SubViewCollectionViewCell.self, forCellWithReuseIdentifier: "SubViewCollectionViewCell")  // 메인 컨텐츠 셀
         collectionView.register(LastestCollectionViewCell.self, forCellWithReuseIdentifier: "LastestCollectionViewCell")  // 즐겨찾기 이미지 셀
+        collectionView.register(BookMarkCollectionViewCell.self, forCellWithReuseIdentifier: "BookMarkCollectionViewCell")
 
         return collectionView
     }()
@@ -88,7 +89,9 @@ class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICo
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookMarkCollectionViewCell", for: indexPath) as? BookMarkCollectionViewCell else { return UICollectionViewCell() }
             let isBookMarked: Bool = isBookMarks[indexPath.row]
             
-            cell.mainImageView.image = UIImage(named: "subimage\(indexPath.row + 1)")
+//            cell.mainImageView.image = UIImage(named: "subimage\(indexPath.row + 1)")
+            // 섞인 이미지 설정
+            cell.mainImageView.image = UIImage(named: randomImageNames[indexPath.row])
             cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰"].randomElement()!
             cell.hashTagTextLabel.text = ["#3000원 #누구나", "#만원이상 #몇번이든"].randomElement()!
             cell.dateTextLabel.text = "24.02.01 ~ 24.04.01"
