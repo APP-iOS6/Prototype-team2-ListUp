@@ -43,6 +43,22 @@
 11. 최근 봤던 행사들을 볼 수 있는 페이지들을 볼 수 있다
 
 ## 시나리오
+<img width="667" alt="스크린샷 2024-08-28 오전 9 49 12" src="https://github.com/user-attachments/assets/42ddfb28-a167-4362-917e-980be6420510">
+<img width="667" alt="스크린샷 2024-08-28 오전 9 50 34" src="https://github.com/user-attachments/assets/5a56ce13-010b-4fb7-8c06-b84d1d283614">
+<img width="665" alt="스크린샷 2024-08-28 오전 9 51 14" src="https://github.com/user-attachments/assets/184c5bde-7f6f-4216-9c05-09d9e48a3ee3">
+<img width="659" alt="스크린샷 2024-08-28 오전 9 51 41" src="https://github.com/user-attachments/assets/33e5549b-9168-40d9-979a-eae5bd51d5ad">
+
+## 화면
+|메인페이지|필터링 시트|
+|----|----|
+|<img width="301" alt="스크린샷 2024-08-28 오전 10 07 34" src="https://github.com/user-attachments/assets/50ad9d85-10d0-4d02-a6cf-dab93cbc94c3">|<img width="254" alt="스크린샷 2024-08-28 오전 10 07 56" src="https://github.com/user-attachments/assets/14b06de6-4b21-4743-9af3-bdd3c702147b">|
+|서브페이지|알림페이지|
+|<img width="311" alt="스크린샷 2024-08-28 오전 10 08 16" src="https://github.com/user-attachments/assets/9347b491-aa49-4842-a685-810856ffd553">|<img width="307" alt="스크린샷 2024-08-28 오전 10 08 37" src="https://github.com/user-attachments/assets/e4e39862-9ea9-417d-8e79-d7d278f345ee">|
+|즐겨찾기 페이지|
+|<img width="315" alt="스크린샷 2024-08-28 오전 10 12 57" src="https://github.com/user-attachments/assets/2faa8b09-00b0-41bb-8ba0-512b118d1f76">|
+
+
+
 
 
 
