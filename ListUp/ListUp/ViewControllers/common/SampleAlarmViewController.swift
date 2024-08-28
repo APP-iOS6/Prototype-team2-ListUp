@@ -1,10 +1,3 @@
-//
-//  SampleAlarmViewController.swift
-//  ListUp
-//
-//  Created by 최승호 on 8/27/24.
-//
-
 import UIKit
 import SafariServices
 
@@ -15,7 +8,7 @@ class SampleAlarmViewController: UIViewController {
         imageView.image = UIImage(named: "listalarm")
         imageView.contentMode = .scaleAspectFill
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(clickAlarm)))
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickAlarm)))
         return imageView
     }()
     
@@ -31,15 +24,25 @@ class SampleAlarmViewController: UIViewController {
             sampleAlarmImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             sampleAlarmImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+        
+        setupSwipeGesture()
+    }
+    
+    private func setupSwipeGesture() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown))
+        swipeDown.direction = .down
+        view.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc private func handleSwipeDown() {
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func clickAlarm(_ sender: UITapGestureRecognizer) {
-        if let url = URL(string: "https://www.naver.com") {
+        if let url = URL(string: "https://m.post.naver.com/viewer/postView.naver?volumeNo=37904830") {
             let vc = SFSafariViewController(url: url)
-            
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
     }
-
 }

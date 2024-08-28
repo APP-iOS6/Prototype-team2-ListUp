@@ -33,6 +33,19 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         return imageView
     }()
     
+    private let completeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("알람완료", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        if let gradientImage = UIImage(named: "gradiant") {
+            button.setBackgroundImage(gradientImage, for: .normal)
+        }
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     let sections = [
         ("쇼핑몰", ["네이버 쇼핑", "쿠팡", "홈플러스", "옥션", "11번가", "G마켓", "롯데 온", "신세계", "트레이더스"]),
         ("도서", ["교보문고", "예스24", "리디북스", "네이버 시리즈", "카카오페이지", "문피아", "조아라", "밀리의 서재"]),
@@ -44,6 +57,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         setupCollectionView()
         setupImageView()
+        setupCompleteButton()
     }
     
     private func setupImageView() {
@@ -57,9 +71,26 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-//            collectionView.heightAnchor.constraint(equalTo: view.heightAnchor)
+            // Constraints for the collectionView
+            collectionView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
         ])
-        imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true // Set image view height as needed
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true // Set image view height as needed
+    }
+    
+    private func setupCompleteButton() {
+        stackView.addArrangedSubview(completeButton)
+        NSLayoutConstraint.activate([
+            completeButton.heightAnchor.constraint(equalToConstant: 35), // Set height as needed
+            completeButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 150),
+            completeButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -150),
+            completeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20) // Adjust bottom spacing as needed
+        ])
+    }
+    
+    @objc private func completeButtonTapped() {
+        let sampleAlarmVC = SampleAlarmViewController()
+        sampleAlarmVC.modalPresentationStyle = .fullScreen
+        present(sampleAlarmVC, animated: true, completion: nil)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -190,13 +221,10 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
 
         func showImage() {
             imageView.isHidden = false
-           
-           
         }
 
         func hideImage() {
             imageView.isHidden = true
-           
         }
         
         override func prepareForReuse() {

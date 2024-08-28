@@ -1,13 +1,6 @@
-//
-//  BaseViewController.swift
-//  ListUp
-//
-//  Created by 권희철 on 8/27/24.
-//
-
 import UIKit
 
-class BaseViewController: UIViewController{
+class BaseViewController: UIViewController {
     public lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -33,7 +26,6 @@ class BaseViewController: UIViewController{
         stackView.layer.shadowOffset = CGSize(width: 0, height: 4)
         stackView.layer.shadowRadius = 5
         stackView.layer.shadowOpacity = 0.25
-        
         return stackView
     }()
     
@@ -41,7 +33,8 @@ class BaseViewController: UIViewController{
         let button = UIButton()
         button.setTitle("", for: .normal)
         button.setImage(UIImage(named: "top1"), for: .normal)
-        
+        button.tag = 1
+        button.addTarget(self, action: #selector(tabButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -49,7 +42,8 @@ class BaseViewController: UIViewController{
         let button = UIButton()
         button.setTitle("", for: .normal)
         button.setImage(UIImage(named: "top2"), for: .normal)
-
+        button.tag = 2
+        button.addTarget(self, action: #selector(tabButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -57,7 +51,8 @@ class BaseViewController: UIViewController{
         let button = UIButton()
         button.setTitle("", for: .normal)
         button.setImage(UIImage(named: "top3"), for: .normal)
-
+        button.tag = 3
+        button.addTarget(self, action: #selector(tabButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -65,40 +60,38 @@ class BaseViewController: UIViewController{
         let button = UIButton()
         button.setTitle("", for: .normal)
         button.setImage(UIImage(named: "top4"), for: .normal)
-        button.addAction(UIAction{ _ in
+        button.tag = 4
+        button.addTarget(self, action: #selector(tabButtonTapped(_:)), for: .touchUpInside)
+        button.addAction(UIAction { _ in
             print("category")
             let vc = FilterSheetViewController()
             vc.modalPresentationStyle = .pageSheet
             vc.sheetPresentationController?.detents = [.medium()]
             self.present(vc, animated: true)
         }, for: .touchUpInside)
-
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
-        
         setupInterface()
         setupLayOut()
     }
     
-    public func setupInterface(){
+    public func setupInterface() {
         view.addSubview(stackView)
         stackView.addArrangedSubview(searchView)
-
         stackView.addArrangedSubview(tabStackView)
-        
         tabStackView.addArrangedSubview(saleTabButton)
         tabStackView.addArrangedSubview(promotionTabButton)
         tabStackView.addArrangedSubview(snsTabButton)
         tabStackView.addArrangedSubview(categoryTabButton)
     }
-    public func setupLayOut(){
+    
+    public func setupLayOut() {
         let safeArea = view.safeAreaLayoutGuide
-        for subview in view.subviews{
+        for subview in view.subviews {
             subview.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -116,9 +109,48 @@ class BaseViewController: UIViewController{
         vc.modalPresentationStyle = .pageSheet
         self.present(vc, animated: true)
     }
+    
+    @objc func tabButtonTapped(_ sender: UIButton) {
+        let originalImageName: String
+        let selectedImageName: String
+        
+        switch sender.tag {
+        case 1:
+            originalImageName = "top1"
+            selectedImageName = "topclick1"
+            tabBarController?.selectedIndex = 1
+        case 2:
+            originalImageName = "top2"
+            selectedImageName = "topclick2"
+            tabBarController?.selectedIndex = 1
+        case 3:
+            originalImageName = "top3"
+            selectedImageName = "topclick3"
+            tabBarController?.selectedIndex = 1
+        case 4:
+            originalImageName = "top4"
+            selectedImageName = "topclick4"
+            tabBarController?.selectedIndex = 1
+        default:
+            return
+        }
+        
+        if sender.image(for: .normal) == UIImage(named: selectedImageName) {
+            sender.setImage(UIImage(named: originalImageName), for: .normal)
+        } else {
+            resetAllTabButtons()
+            sender.setImage(UIImage(named: selectedImageName), for: .normal)
+        }
+    }
+    
+    private func resetAllTabButtons() {
+        saleTabButton.setImage(UIImage(named: "top1"), for: .normal)
+        promotionTabButton.setImage(UIImage(named: "top2"), for: .normal)
+        snsTabButton.setImage(UIImage(named: "top3"), for: .normal)
+        categoryTabButton.setImage(UIImage(named: "top4"), for: .normal)
+    }
 }
 
-
-#Preview{
+#Preview {
     BaseViewController()
 }

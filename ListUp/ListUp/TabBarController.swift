@@ -13,19 +13,24 @@ class TabBarController: UITabBarController{
         
         view.backgroundColor = .systemBackground
         tabBar.backgroundColor = .systemBackground
+        tabBar.tintColor = UIColor.systemMint
+        
         
         buildViewController()
     }
     
     private func buildViewController(){
         let mainViewController: UIViewController = MainViewController()
-        mainViewController.tabBarItem = UITabBarItem(title: "", image: .tabhome, tag: 1)
+        mainViewController.tabBarItem = UITabBarItem(title: "", image: .tabhome.withRenderingMode(.alwaysOriginal), selectedImage: .tabhome)
+
         let subViewController: UIViewController = SubViewController()
-        subViewController.tabBarItem = UITabBarItem(title: "", image: .tablist, tag: 2)
+        subViewController.tabBarItem = UITabBarItem(title: "", image: .tablist.withRenderingMode(.alwaysOriginal), selectedImage: .tablist)
+
         let alarmViewContorller: UIViewController = AlarmViewController()
-        alarmViewContorller.tabBarItem = UITabBarItem(title: "", image: .tabalarm, tag: 3)
+        alarmViewContorller.tabBarItem = UITabBarItem(title: "", image: .tabalarm.withRenderingMode(.alwaysOriginal), selectedImage: .tabalarm)
+
         let bookmarkViewController: UIViewController = BookmarkViewController()
-        bookmarkViewController.tabBarItem = UITabBarItem(title: "", image: .tabheart, tag: 4)
+        bookmarkViewController.tabBarItem = UITabBarItem(title: "", image: .tabheart.withRenderingMode(.alwaysOriginal), selectedImage: .tabheart)
         
         viewControllers = [mainViewController, subViewController, alarmViewContorller, bookmarkViewController]
     }

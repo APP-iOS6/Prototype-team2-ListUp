@@ -16,6 +16,11 @@ class FilterSheetViewController: UIViewController {
         return imageView
     }()
     
+    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        return gesture
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -27,8 +32,15 @@ class FilterSheetViewController: UIViewController {
             sheetImageView.widthAnchor.constraint(equalToConstant: view.bounds.width),
             sheetImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
+        
+        // Add tap gesture recognizer to view
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
 
+    @objc private func handleTap() {
+        // Dismiss the view controller when tapped
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 #Preview{

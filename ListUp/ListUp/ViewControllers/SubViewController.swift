@@ -90,7 +90,7 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
 
     // 셀 선택시 사파리뷰 띄우기
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         if let url = URL(string: "https://www.naver.com") {
+         if let url = URL(string: "https://m.post.naver.com/viewer/postView.naver?volumeNo=37904830") {
              let viewController = SFSafariViewController(url: url)
              
              viewController.modalPresentationStyle = .pageSheet
