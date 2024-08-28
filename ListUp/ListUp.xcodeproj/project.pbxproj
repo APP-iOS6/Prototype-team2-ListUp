@@ -109,7 +109,6 @@
 				25D5FF222C7D591E00DCC01C /* common */,
 				420B38932C7DDCFB00206B36 /* TableCell */,
 				420B38962C7DDD3300206B36 /* CollectionCell */,
-				25D5FF172C7D56A800DCC01C /* MainViewController.swift */,
 				25D5FF1C2C7D58D200DCC01C /* SubViewController.swift */,
 				18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */,
 				25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */,
@@ -151,6 +150,7 @@
 		420B38962C7DDD3300206B36 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
+				25D5FF172C7D56A800DCC01C /* MainViewController.swift */,
 				18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */,
 				420B38812C7D6AA100206B36 /* BookMarkCollectionViewCell.swift */,
 				420B38942C7DDD1700206B36 /* MainCollectionCell.swift */,
