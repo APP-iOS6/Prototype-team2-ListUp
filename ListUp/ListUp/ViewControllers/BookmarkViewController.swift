@@ -10,7 +10,8 @@ import SafariServices
 
 class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private var isBookMarked: Bool = false  // 북마크 여부를 나타내기위한 변수
+    // 각 indexPath.row마다 북마크 여부를 나타내기위한 변수
+    private var isBookMarks: [Bool] = Array(repeating: true, count: 12)
     
     private lazy var bookmarkCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -60,14 +61,24 @@ class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICo
             return cell
         } else {    // 1번 섹션은 하단의 메인 컨텐츠의 컬렉션뷰 셀
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookMarkCollectionViewCell", for: indexPath) as? BookMarkCollectionViewCell else { return UICollectionViewCell() }
+            let isBookMarked: Bool = isBookMarks[indexPath.row]
+            
             cell.mainImageView.image = UIImage(named: "subimage\(indexPath.row + 1)")
             cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰"].randomElement()!
             cell.hashTagTextLabel.text = ["#3000원 #누구나", "#만원이상 #몇번이든"].randomElement()!
             cell.dateTextLabel.text = "24.02.01 ~ 24.04.01"
-            cell.heartImageView.addAction(UIAction { _ in
-                self.isBookMarked.toggle()
-                cell.heartImageView.setImage(self.isBookMarked ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
-            }, for: .touchUpInside)
+            
+            cell.heartImageView.setImage(isBookMarked ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
+            
+            // 셀을 만들면서 기존에 생성되어있던 액션을 삭제합니다.
+            cell.heartImageView.removeAction(identifiedBy: .init("toggle heart"), for: .touchUpInside)
+            
+            // 하트 이미지버튼에 액션을 추가합니다. action: row번째 bool값을 토글하고 해당 bool값으로 이미지를 다시 설정합니다.
+            cell.heartImageView.addAction(UIAction(identifier: .init("toggle heart"), handler: { _ in
+                self.isBookMarks[indexPath.row].toggle()
+                let newState = self.isBookMarks[indexPath.row]
+                cell.heartImageView.setImage(newState ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
+            }), for: .touchUpInside)
             
             return cell
         }

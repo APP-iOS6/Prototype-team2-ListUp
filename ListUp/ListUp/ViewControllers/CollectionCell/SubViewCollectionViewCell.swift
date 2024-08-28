@@ -89,7 +89,7 @@ class SubViewCollectionViewCell: UICollectionViewCell {
             heartImageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 0),
             heartImageView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -0),
             heartImageView.widthAnchor.constraint(equalToConstant: 24),
-            heartImageView.heightAnchor.constraint(equalToConstant: 30),
+            heartImageView.heightAnchor.constraint(equalToConstant: 24),
         ])
     }
     
