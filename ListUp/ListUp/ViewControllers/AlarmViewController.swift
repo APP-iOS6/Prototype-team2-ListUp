@@ -1,6 +1,6 @@
 import UIKit
 
-class AlarmViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class AlarmViewController: BaseViewController, UICollectionViewDelegateFlowLayout {
     
     private var isSelected: Bool = false
     var buttonStates = [("쇼핑몰", Array(repeating: false, count: 9)),
@@ -20,7 +20,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         collectionView.dataSource = self
         collectionView.isScrollEnabled = true
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(ButtonCollectionViewCell.self, forCellWithReuseIdentifier: "ButtonCell")
+        collectionView.register(AlarmButtonCollectionViewCell.self, forCellWithReuseIdentifier: "AlarmButtonCell")
         collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         return collectionView
     }()
@@ -101,24 +101,24 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         return sections[section].1.count
     }
     
+
+    
+}
+
+extension AlarmViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as? ButtonCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlarmButtonCell", for: indexPath) as? AlarmButtonCollectionViewCell else {return UICollectionViewCell()}
         
         let title = sections[indexPath.section].1[indexPath.item]
-        cell.configure(with: title, image: imageForButton)
-        let isActive = buttonStates[indexPath.section].1[indexPath.item]
-        if isActive {
-            cell.showImage()
-        } else {
-            cell.hideImage()
+        
+        cell.button.setTitle(title, for: .normal)
+        cell.buttonAction = {()->() in
+            cell.buttonSelected.toggle()
         }
-        cell.button.addTarget(self, action: #selector(uiButtonTapped(_:)), for: .touchUpInside)
         
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding: CGFloat = 16
         let sectionInsetPadding: CGFloat = 20 // 양 끝쪽에 20포인트씩의 공간을 추가
@@ -136,6 +136,20 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         
         let sectionTitle = sections[indexPath.section].0
         headerView.configure(with: sectionTitle)
+        
+        headerView.buttonAction = {()-> () in
+            headerView.isSelected.toggle()
+            if headerView.isSelected{
+                headerView.allSelectButton.setImage(.checkbox, for: .normal)
+            }else{
+                headerView.allSelectButton.setImage(.box, for: .normal)
+            }
+            
+            for i in 0..<self.sections[indexPath.section].1.count{
+                let cell = collectionView.cellForItem(at: [indexPath.section, i]) as? AlarmButtonCollectionViewCell
+                cell?.buttonSelected = headerView.isSelected
+            }
+        }
         return headerView
     }
     
@@ -143,125 +157,56 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegate, UIColle
         return CGSize(width: collectionView.frame.width, height: 40)
     }
     
-    @objc private func uiButtonTapped(_ sender: UIButton) {
-        let buttonPosition = sender.convert(CGPoint.zero, to: collectionView)
-        if let indexPath = collectionView.indexPathForItem(at: buttonPosition) {
-            let isActive = buttonStates[indexPath.section].1[indexPath.item]
-            buttonStates[indexPath.section].1[indexPath.item].toggle()
-            collectionView.reloadItems(at: [indexPath])
+}
+
+// 섹션 헤더 뷰
+class SectionHeaderView: UICollectionReusableView {
+    
+    var buttonAction : ()->() = {}
+    var isSelected : Bool = false
+    
+    let label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var allSelectButton: UIButton = {
+        let button = UIButton()
+        button.setImage(.box, for: .normal)
+        button.frame.size = CGSize(width: 10, height: 10)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction(identifier: .init("AllSelect")){_ in
+            self.buttonAction()
+        }, for: .touchUpInside)
+        return button
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(label)
+        addSubview(allSelectButton)
+        
+        isSelected = false
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -6),
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            if let cell = collectionView.cellForItem(at: indexPath) as? ButtonCollectionViewCell {
-                if buttonStates[indexPath.section].1[indexPath.item] {
-                    cell.showImage()
-                } else {
-                    cell.hideImage()
-                }
-            }
-        }
+            allSelectButton.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 6),
+            allSelectButton.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
     
-    // 커스텀 셀
-    class ButtonCollectionViewCell: UICollectionViewCell {
-        
-        let button: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitleColor(.black, for: .normal)
-            button.layer.cornerRadius = 8
-            button.layer.borderWidth = 2
-            button.layer.borderColor = UIColor.red.cgColor
-            button.translatesAutoresizingMaskIntoConstraints = false
-            return button
-        }()
-        
-        private let imageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleToFill
-            imageView.isHidden = true  // Initially hidden
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
-        }()
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            contentView.addSubview(button)
-            contentView.addSubview(imageView)
-            
-            // Add constraints
-            NSLayoutConstraint.activate([
-                // Button constraints
-                button.topAnchor.constraint(equalTo: contentView.topAnchor),
-                button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                
-                // ImageView constraints
-                imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                imageView.widthAnchor.constraint(equalTo: button.widthAnchor),
-                imageView.heightAnchor.constraint(equalTo: button.heightAnchor)
-            ])
-            
-            // Ensure imageView is on top of button
-            contentView.bringSubviewToFront(imageView)
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        func configure(with title: String, image: UIImage?) {
-            button.setTitle(title, for: .normal)
-            
-            if let image = image {
-                imageView.image = image
-                imageView.alpha = 1.0 // 이미지 투명도 조정 (0.0 ~ 1.0 범위)
-                imageView.layer.cornerRadius = 3
-            }
-        }
-
-        func showImage() {
-            imageView.isHidden = false
-        }
-
-        func hideImage() {
-            imageView.isHidden = true
-        }
-        
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            self.button.backgroundColor = .white
-            hideImage() // Ensure image is hidden on reuse
-        }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    // 섹션 헤더 뷰
-    class SectionHeaderView: UICollectionReusableView {
-        
-        let label: UILabel = {
-            let label = UILabel()
-            label.textAlignment = .center
-            label.font = UIFont.boldSystemFont(ofSize: 18)
-            label.textColor = .black
-            return label
-        }()
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            addSubview(label)
-            label.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                label.centerXAnchor.constraint(equalTo: centerXAnchor),
-                label.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        func configure(with title: String) {
-            label.text = title
-        }
+    func configure(with title: String) {
+        label.text = title
     }
 }
 
