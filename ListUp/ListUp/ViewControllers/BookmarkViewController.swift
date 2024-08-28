@@ -3,12 +3,17 @@ import SafariServices
 
 class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    private var isBookMarked: Bool = false  // 북마크 여부를 나타내기 위한 변수
+    
+    // 각 indexPath.row마다 북마크 여부를 나타내기위한 변수
+    private var isBookMarks: [Bool] = Array(repeating: true, count: 12)
+    
+
     private var imageNames: [String] = []  // 이미지 파일 이름들을 저장할 배열
     private var randomImageNames: [String] = [] // 섞인 이미지를 저장할 배열
     private var randomURLs: [URL] = [] // 섞인 URL들을 저장할 배열
 
     private lazy var subCollectionView: UICollectionView = {
+
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 20
@@ -79,22 +84,26 @@ class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICo
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastestCollectionViewCell", for: indexPath) as? LastestCollectionViewCell else { return UICollectionViewCell() }
             cell.topImageView.image = UIImage(named: "lastest")
             return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubViewCollectionViewCell", for: indexPath) as? SubViewCollectionViewCell else { return UICollectionViewCell() }
-
-            // 섞인 이미지 설정
-            cell.mainImageView.image = UIImage(named: randomImageNames[indexPath.row])
-
-            // 한글 라벨 설정
-            cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰", "인터라켄 3% 웰컴쿠폰", "2024 새해 쿠폰선물"].randomElement()!
-            cell.hashTagTextLabel.text = ["#3000원 #누구나", "#만원이상 #몇번이든", "#중복적용 #누구나", "#네이버쇼핑 5~20%"].randomElement()!
+        } else {    // 1번 섹션은 하단의 메인 컨텐츠의 컬렉션뷰 셀
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookMarkCollectionViewCell", for: indexPath) as? BookMarkCollectionViewCell else { return UICollectionViewCell() }
+            let isBookMarked: Bool = isBookMarks[indexPath.row]
+            
+            cell.mainImageView.image = UIImage(named: "subimage\(indexPath.row + 1)")
+            cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰"].randomElement()!
+            cell.hashTagTextLabel.text = ["#3000원 #누구나", "#만원이상 #몇번이든"].randomElement()!
             cell.dateTextLabel.text = "24.02.01 ~ 24.04.01"
-
-            // 북마크 버튼 설정
-            cell.heartImageView.addAction(UIAction { _ in
-                self.isBookMarked.toggle()
-                cell.heartImageView.setImage(self.isBookMarked ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
-            }, for: .touchUpInside)
+            
+            cell.heartImageView.setImage(isBookMarked ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
+            
+            // 셀을 만들면서 기존에 생성되어있던 액션을 삭제합니다.
+            cell.heartImageView.removeAction(identifiedBy: .init("toggle heart"), for: .touchUpInside)
+            
+            // 하트 이미지버튼에 액션을 추가합니다. action: row번째 bool값을 토글하고 해당 bool값으로 이미지를 다시 설정합니다.
+            cell.heartImageView.addAction(UIAction(identifier: .init("toggle heart"), handler: { _ in
+                self.isBookMarks[indexPath.row].toggle()
+                let newState = self.isBookMarks[indexPath.row]
+                cell.heartImageView.setImage(newState ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
+            }), for: .touchUpInside)
 
             return cell
         }
