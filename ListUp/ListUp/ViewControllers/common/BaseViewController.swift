@@ -1,6 +1,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+
     public lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -88,18 +89,24 @@ class BaseViewController: UIViewController {
         tabStackView.addArrangedSubview(snsTabButton)
         tabStackView.addArrangedSubview(categoryTabButton)
     }
-    
     public func setupLayOut() {
         let safeArea = view.safeAreaLayoutGuide
-        for subview in view.subviews {
-            subview.translatesAutoresizingMaskIntoConstraints = false
-        }
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        searchView.translatesAutoresizingMaskIntoConstraints = false
+        tabStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            // stackView Constraints
             stackView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            
+            // searchView Constraints
+            searchView.heightAnchor.constraint(equalToConstant: 50), // Fixed height for search view
+            
+            // tabStackView Constraints
+            tabStackView.heightAnchor.constraint(equalToConstant: 60), // Fixed height for tab buttons
         ])
     }
     
@@ -118,14 +125,17 @@ class BaseViewController: UIViewController {
         case 1:
             originalImageName = "top1"
             selectedImageName = "topclick1"
+            (self as? SubViewController)?.updateTab(to: .sale)
             tabBarController?.selectedIndex = 1
         case 2:
             originalImageName = "top2"
             selectedImageName = "topclick2"
+            (self as? SubViewController)?.updateTab(to: .promotion)
             tabBarController?.selectedIndex = 1
         case 3:
             originalImageName = "top3"
             selectedImageName = "topclick3"
+            (self as? SubViewController)?.updateTab(to: .sns)
             tabBarController?.selectedIndex = 1
         case 4:
             originalImageName = "top4"
@@ -151,6 +161,3 @@ class BaseViewController: UIViewController {
     }
 }
 
-#Preview {
-    BaseViewController()
-}
