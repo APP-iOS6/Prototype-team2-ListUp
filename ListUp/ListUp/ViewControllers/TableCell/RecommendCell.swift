@@ -17,8 +17,8 @@ class RecommendCell: UITableViewCell {
     }()
     
     private var isBookMarked: Bool = false
-
-    var tappedAction: ()-> () = {}
+    
+    var tappedAction: (_ index: Int)-> () = {index in }
     
 //    private lazy var recommendCollectionView: UICollectionView = {
 //        let layout = UICollectionViewFlowLayout()
@@ -54,8 +54,9 @@ class RecommendCell: UITableViewCell {
             button.imageView?.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
             button.imageView?.heightAnchor.constraint(equalToConstant: 466).isActive = true
             
+            button.tag = i
             button.addAction(UIAction{_ in
-                self.tappedAction()
+                self.tappedAction(i)
             }, for: .touchUpInside)
         }
         

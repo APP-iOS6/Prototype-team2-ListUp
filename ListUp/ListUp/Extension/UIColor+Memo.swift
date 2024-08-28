@@ -27,6 +27,9 @@ extension UIColor {
     static var grayFontColor: UIColor {
         UIColor(red: 161/255, green: 161/255, blue: 161/255, alpha: 1.0)
     }
+    static var alarmButtonColor: UIColor{
+        UIColor(red: 255/255, green: 192/255, blue: 203/255, alpha: 0.8)
+    }
 }
 
 //글자 색상 :
