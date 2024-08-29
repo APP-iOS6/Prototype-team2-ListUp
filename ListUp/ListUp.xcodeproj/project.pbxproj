@@ -11,6 +11,7 @@
 		18E0244B2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */; };
 		259220242C7DFD9700A860AB /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259220232C7DFD9700A860AB /* SectionCell.swift */; };
 		259220262C7EE39900A860AB /* AlarmButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259220252C7EE39900A860AB /* AlarmButtonCollectionViewCell.swift */; };
+		2592202A2C8039A300A860AB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259220292C8039A300A860AB /* SearchViewController.swift */; };
 		25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF012C7D54A100DCC01C /* AppDelegate.swift */; };
 		25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF032C7D54A100DCC01C /* SceneDelegate.swift */; };
 		25D5FF062C7D54A100DCC01C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D5FF052C7D54A100DCC01C /* NavigationController.swift */; };
@@ -31,6 +32,7 @@
 		420B38902C7DDCF100206B36 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B388F2C7DDCF100206B36 /* RecommendCell.swift */; };
 		420B38922C7DDCF400206B36 /* ShoppingmallListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38912C7DDCF400206B36 /* ShoppingmallListCell.swift */; };
 		420B38952C7DDD1700206B36 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B38942C7DDD1700206B36 /* MainCollectionCell.swift */; };
+		E0438D902C80393C00B7A48A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0438D8F2C80393C00B7A48A /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		18E0244A2C7DAC9F005C2153 /* SubViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		259220232C7DFD9700A860AB /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		259220252C7EE39900A860AB /* AlarmButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		259220292C8039A300A860AB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		25D5FEFE2C7D54A100DCC01C /* ListUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D5FF012C7D54A100DCC01C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25D5FF032C7D54A100DCC01C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		420B388F2C7DDCF100206B36 /* RecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		420B38912C7DDCF400206B36 /* ShoppingmallListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingmallListCell.swift; sourceTree = "<group>"; };
 		420B38942C7DDD1700206B36 /* MainCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionCell.swift; path = ListUp/ViewControllers/CollectionCell/MainCollectionCell.swift; sourceTree = SOURCE_ROOT; };
+		E0438D8F2C80393C00B7A48A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				18E024482C7DAC8A005C2153 /* LastestCollectionViewCell.swift */,
 				25D5FF1E2C7D58F200DCC01C /* AlarmViewController.swift */,
 				25D5FF202C7D591700DCC01C /* BookmarkViewController.swift */,
+				259220292C8039A300A860AB /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				420B38862C7D9BFA00206B36 /* TopImageCollectionViewCell.swift */,
 				420B38882C7DBA5900206B36 /* FilterSheetViewController.swift */,
 				420B388A2C7DC96E00206B36 /* SampleAlarmViewController.swift */,
+				E0438D8F2C80393C00B7A48A /* DetailViewController.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -244,8 +250,10 @@
 				25D5FF022C7D54A100DCC01C /* AppDelegate.swift in Sources */,
 				25D5FF042C7D54A100DCC01C /* SceneDelegate.swift in Sources */,
 				420B38872C7D9BFA00206B36 /* TopImageCollectionViewCell.swift in Sources */,
+				2592202A2C8039A300A860AB /* SearchViewController.swift in Sources */,
 				259220242C7DFD9700A860AB /* SectionCell.swift in Sources */,
 				420B388E2C7DDCED00206B36 /* MainBanerCell.swift in Sources */,
+				E0438D902C80393C00B7A48A /* DetailViewController.swift in Sources */,
 				420B38902C7DDCF100206B36 /* RecommendCell.swift in Sources */,
 				420B38892C7DBA5900206B36 /* FilterSheetViewController.swift in Sources */,
 				25D5FF182C7D56A800DCC01C /* MainViewController.swift in Sources */,

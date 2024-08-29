@@ -13,7 +13,7 @@ class TabBarController: UITabBarController{
         
         view.backgroundColor = .systemBackground
         tabBar.backgroundColor = .systemBackground
-        tabBar.tintColor = UIColor.systemMint
+        tabBar.tintColor = UIColor.systemRed
         
         
         buildViewController()

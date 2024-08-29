@@ -5,7 +5,7 @@ class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICo
 
     
     // 각 indexPath.row마다 북마크 여부를 나타내기위한 변수
-    private var isBookMarks: [Bool] = Array(repeating: true, count: 12)
+    private var isBookMarks: [Bool] = Array(repeating: true, count: 3)
     
 
     private var imageNames: [String] = []  // 이미지 파일 이름들을 저장할 배열
@@ -41,7 +41,7 @@ class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICo
     // 이미지 및 URL 초기화 및 섞기
     private func setupImagesAndURLs() {
         // 이미지 이름 초기화
-        imageNames = (1...12).map { "subimage\($0)" }
+        imageNames = (1...3).map { "subimage\($0)" }
         // 이미지 이름 섞기
         randomImageNames = imageNames.shuffled()
 
@@ -83,7 +83,7 @@ class BookmarkViewController: BaseViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastestCollectionViewCell", for: indexPath) as? LastestCollectionViewCell else { return UICollectionViewCell() }
-            cell.topImageView.image = UIImage(named: "lastest")
+            cell.topImageView.image = UIImage(named: "long_bookmark")
             return cell
         } else {    // 1번 섹션은 하단의 메인 컨텐츠의 컬렉션뷰 셀
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookMarkCollectionViewCell", for: indexPath) as? BookMarkCollectionViewCell else { return UICollectionViewCell() }

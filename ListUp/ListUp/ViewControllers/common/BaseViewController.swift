@@ -14,8 +14,29 @@ class BaseViewController: UIViewController {
         imageView.image = .group47
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlarm)))
+        
+        //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlarm)))
         return imageView
+    }()
+    
+    lazy var searchButtonView: UIButton = {
+        let button = UIButton()
+        button.setImage(.group47, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction{_ in
+            self.navigationController?.pushViewController(SearchViewController(), animated: true)
+            
+        }, for: .touchUpInside)
+        return button
+    }()
+    
+    
+    lazy var searchBarStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
     }()
     
     lazy var tabStackView: UIStackView = {
@@ -80,15 +101,19 @@ class BaseViewController: UIViewController {
         setupLayOut()
     }
     
+    // 기본 구현: 서브클래스에서 필요에 따라 오버라이드
     public func setupInterface() {
         view.addSubview(stackView)
-        stackView.addArrangedSubview(searchView)
+
+        stackView.addArrangedSubview(searchButtonView)
+        
         stackView.addArrangedSubview(tabStackView)
         tabStackView.addArrangedSubview(saleTabButton)
         tabStackView.addArrangedSubview(promotionTabButton)
         tabStackView.addArrangedSubview(snsTabButton)
         tabStackView.addArrangedSubview(categoryTabButton)
     }
+    
     public func setupLayOut() {
         let safeArea = view.safeAreaLayoutGuide
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +129,7 @@ class BaseViewController: UIViewController {
             
             // searchView Constraints
             searchView.heightAnchor.constraint(equalToConstant: 50), // Fixed height for search view
+            searchButtonView.heightAnchor.constraint(equalToConstant: 50),
             
             // tabStackView Constraints
             tabStackView.heightAnchor.constraint(equalToConstant: 60), // Fixed height for tab buttons
@@ -160,4 +186,3 @@ class BaseViewController: UIViewController {
         categoryTabButton.setImage(UIImage(named: "top4"), for: .normal)
     }
 }
-
