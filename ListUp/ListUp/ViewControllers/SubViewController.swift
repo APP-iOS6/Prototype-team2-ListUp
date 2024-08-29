@@ -8,7 +8,29 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
     private var imageNames: [String] = []  // 이미지 파일 이름들을 저장할 배열
     private var randomImageNames: [String] = [] // 섞인 이미지를 저장할 배열
     private var randomURLs: [URL] = [] // 섞인 URL들을 저장할 배열
+    private var topButtonStates: [Bool] = Array(repeating: false, count: 7)
+    var topFilteringButtons: [UIButton] = []
 
+    private lazy var topFilteringScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.contentSize = CGSize(width: 700, height: 20)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsHorizontalScrollIndicator = true
+        scrollView.isPagingEnabled = false
+        scrollView.backgroundColor = .systemBackground
+        return scrollView
+    }()
+    
+    private lazy var topFilteringStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 0
+        stackView.distribution = .fillEqually
+        stackView.backgroundColor = .systemBackground
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     private lazy var subCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -57,30 +79,21 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
 
     // 섹션 수
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2  // (상단 이미지 섹션, 메인 컨텐츠 섹션) 2개
+        return 1
     }
 
     // 각 섹션별 항목 수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : randomImageNames.count // 첫 번째 섹션은 1개, 두 번째 섹션은 랜덤 이미지 수
+        randomImageNames.count // 랜덤 이미지 수
     }
 
     // 섹션별 셀 크기 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
-            return CGSize(width: collectionView.bounds.width, height: 50)
-        } else {
             return CGSize(width: 159, height: 230)
-        }
     }
 
     // 셀 설정
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastestCollectionViewCell", for: indexPath) as? LastestCollectionViewCell else { return UICollectionViewCell() }
-            cell.topImageView.image = UIImage(named: "lastest")
-            return cell
-        } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubViewCollectionViewCell", for: indexPath) as? SubViewCollectionViewCell else { return UICollectionViewCell() }
             let isBookMarked: Bool = isBookMarks[indexPath.row]
           
@@ -101,12 +114,33 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
 
       
             return cell
-        }
     }
 
     override func setupInterface() {
         super.setupInterface()
+        stackView.addArrangedSubview(topFilteringScrollView)
         stackView.addArrangedSubview(subCollectionView)
+        topFilteringScrollView.addSubview(topFilteringStackView)
+        
+        // 상단 필터링 버튼들 추가
+        
+        for i in 0...6 {
+            let button = UIButton()
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setImage(UIImage(named: "filter\(i+1)"), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFill
+            button.addAction(UIAction { _ in
+                self.topButtonTapped(index: i)
+                print("\(self.topButtonStates)")
+            }, for: .touchUpInside)
+            topFilteringButtons.append(button)
+        }
+        
+        for i in topFilteringButtons {
+            topFilteringStackView.addArrangedSubview(i)
+        }
+        
+        
     }
 
     override func setupLayOut() {
@@ -114,6 +148,11 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
 
         NSLayoutConstraint.activate([
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            topFilteringScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            topFilteringScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            topFilteringScrollView.heightAnchor.constraint(equalToConstant: 20),
+            topFilteringStackView.heightAnchor.constraint(equalToConstant: 20),
+            
         ])
     }
 
@@ -136,4 +175,22 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
     enum TabType {
         case sale, promotion, sns, category
     }
+    
+    // 상단 최신순,인기순,,, 탭 선택시 호출되는 함수
+    func topButtonTapped(index: Int) {
+        // 인덱스번째 버튼의 상태를 true, 나머지는 false로 변경
+        for (i, _) in topButtonStates.enumerated() {
+            topButtonStates[i] = (i == index)
+        }
+        
+        // 인덱스번째 버튼의 이미지를 선택된이미지로 변경하는 함수
+        for (i, button) in topFilteringButtons.enumerated() {
+            let img = topButtonStates[i] ? UIImage(named: "filterred\(i+1)") : UIImage(named: "filter\(i+1)")
+            button.setImage(img, for: .normal)
+        }
+    }
+}
+
+#Preview {
+    SubViewController()
 }
