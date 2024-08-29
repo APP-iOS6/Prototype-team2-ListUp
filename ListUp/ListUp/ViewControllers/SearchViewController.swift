@@ -30,6 +30,10 @@ class SearchViewController: UIViewController{
 extension SearchViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.navigationController?.popViewController(animated: true)
+        let topController = self.navigationController?.topViewController as? TabBarController
+        if let topController{
+            topController.selectedIndex = 1
+        }
         return true
     }
 }
