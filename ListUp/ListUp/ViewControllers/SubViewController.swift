@@ -158,7 +158,7 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
 
     // 셀 선택 시 사파리 뷰 띄우기
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.section == 0 {
             let selectedURL = randomURLs[indexPath.row]
             let viewController = SFSafariViewController(url: selectedURL)
             viewController.modalPresentationStyle = .pageSheet
