@@ -4,7 +4,7 @@ import SafariServices
 class SubViewController: BaseViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // 북마크 여부를 나타내기위한 변수
-    private var isBookMarks: [Bool] = Array(repeating: true, count: 12)
+    private var isBookMarks: [Bool] = Array(repeating: false, count: 12)
     private var imageNames: [String] = []  // 이미지 파일 이름들을 저장할 배열
     private var randomImageNames: [String] = [] // 섞인 이미지를 저장할 배열
     private var randomURLs: [URL] = [] // 섞인 URL들을 저장할 배열
