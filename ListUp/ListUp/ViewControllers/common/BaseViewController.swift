@@ -80,6 +80,7 @@ class BaseViewController: UIViewController {
         setupLayOut()
     }
     
+    // 기본 구현: 서브클래스에서 필요에 따라 오버라이드
     public func setupInterface() {
         view.addSubview(stackView)
         stackView.addArrangedSubview(searchView)
@@ -89,6 +90,7 @@ class BaseViewController: UIViewController {
         tabStackView.addArrangedSubview(snsTabButton)
         tabStackView.addArrangedSubview(categoryTabButton)
     }
+    
     public func setupLayOut() {
         let safeArea = view.safeAreaLayoutGuide
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -160,4 +162,3 @@ class BaseViewController: UIViewController {
         categoryTabButton.setImage(UIImage(named: "top4"), for: .normal)
     }
 }
-
