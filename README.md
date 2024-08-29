@@ -4,6 +4,10 @@
 # 앱 이름
 리스트업
 
+## 구동 화면
+
+![Simulator Screen Recording - iPhone 15 Pro - 2024-08-29 at 19 45 31](https://github.com/user-attachments/assets/feb8b141-1471-4f3e-8729-97c1b80b726a)
+
 # ADS 및 페르소나 탐구
 
 ## ADS
@@ -55,10 +59,10 @@
 |메인페이지|필터링 시트|
 |----|----|
 |<img width="301" alt="스크린샷 2024-08-28 오전 10 07 34" src="https://github.com/user-attachments/assets/50ad9d85-10d0-4d02-a6cf-dab93cbc94c3">|<img width="254" alt="스크린샷 2024-08-28 오전 10 07 56" src="https://github.com/user-attachments/assets/14b06de6-4b21-4743-9af3-bdd3c702147b">|
-|서브페이지|알림페이지|
-|<img width="311" alt="스크린샷 2024-08-28 오전 10 08 16" src="https://github.com/user-attachments/assets/9347b491-aa49-4842-a685-810856ffd553">|<img width="307" alt="스크린샷 2024-08-28 오전 10 08 37" src="https://github.com/user-attachments/assets/e4e39862-9ea9-417d-8e79-d7d278f345ee">|
-|즐겨찾기 페이지|
-|<img width="315" alt="스크린샷 2024-08-28 오전 10 12 57" src="https://github.com/user-attachments/assets/2faa8b09-00b0-41bb-8ba0-512b118d1f76">|
+|리스트 페이지|알림페이지|
+|![스크린샷 2024-08-29 오후 7 46 06](https://github.com/user-attachments/assets/ba57b813-6bc9-49b3-acf8-525e08120d0d)|<img width="307" alt="스크린샷 2024-08-28 오전 10 08 37" src="https://github.com/user-attachments/assets/e4e39862-9ea9-417d-8e79-d7d278f345ee">|
+|즐겨찾기 페이지|검색 페이지|
+|<img width="315" alt="스크린샷 2024-08-28 오전 10 12 57" src="https://github.com/user-attachments/assets/2faa8b09-00b0-41bb-8ba0-512b118d1f76">|![스크린샷 2024-08-29 오후 7 46 40](https://github.com/user-attachments/assets/87f961af-0abe-4be5-8bf7-bc01eaf45d1a)|
 
 # 피드백 및 개선 사항
 
@@ -100,6 +104,23 @@
 4. 상단의 할인 프로모션 SNS의 이름을 고민하고, 3개의 서브뷰를 만든다.
 5. 각 셀마다 유효한 할인이벤트로 연결한다.
 
+## 2024.08.29 개선
+### 피드백
+1. 서브 페이지) 프로토타입이라도 최신순 리스트를 누를 때 어떤 것으로 정렬할 지 나오게 하면 좋음
+2. 이미지 비율 맞추기
+3. 할인 후 가격이 최저가인지 알 수 없으므로 어디가 최저가 인지 알려주는 것이 좋음
+    1. 할인페이지에서면 비교 UI를 넣으면 될것같음
+4. 정보를 긁어와 보여주기만 하는 것은 아쉬움 → 비교까지 해줘야 사용자 만족도가 높다
+5. 이유 없이 색을 나눠버리면 안된다. 위계가 같다면 색상은 통일 해야한다.
+6. 탭마다 위에 어떤 탭인지 타이틀을 써줘야함
+    1. 서브뷰의 이름을 어떻게 할지, 서브뷰 탭아이콘을 바꾸거나 탭레이블을 달아주면 좋겠다
+7. 알람 페이지 알람 완료 버튼 레이블은 설정 완료여야 함
+8. 설정 완료 버튼을 눌렀을 때 시트가 아니라 설정이 완료 되었다는 메세지가 떠야함
+
+### 수정사항
+1. 검색 눌렀을 때 검색 뷰로 넘어가는 기능 추가
+2. 리스트 뷰에서 정렬 탭 추가
+3. 리스트 뷰와 즐겨찾기 관리 페이지를 구분할 수 있도록 수정
 
 
 # 작동환경
@@ -108,7 +129,7 @@
 
 # 개발자
 - 구영진
-- 권희철
+- 권희철 - https://github.com/khc1104
 - 박범규
 - 배문성
 - 최승호
