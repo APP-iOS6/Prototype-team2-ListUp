@@ -9,6 +9,8 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
     private var isBookMarks: [Bool] = Array(repeating: false, count: 12)
     private var imageNames: [String] = []  // 이미지 파일 이름들을 저장할 배열
     private var randomImageNames: [String] = [] // 섞인 이미지를 저장할 배열
+    private var randomHashTags: [String] = []  // 섞인 해시태그를 저장할 배열
+    private var randomDates: [String] = []  // 섞인 날짜를 저장할 배열
     private var randomURLs: [URL] = [] // 섞인 URL들을 저장할 배열
     private var topButtonStates: [Bool] = Array(repeating: false, count: 7)
     var topFilteringButtons: [UIButton] = []
@@ -100,24 +102,27 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
     
     // 셀 설정
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubViewCollectionViewCell", for: indexPath) as? SubViewCollectionViewCell else { return UICollectionViewCell() }
-            
-            // 섞인 이미지 설정
-            cell.mainImageView.image = UIImage(named: randomImageNames[indexPath.row])
-            
-            // 한글 라벨 설정
-            cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰", "인터라켄 3% 웰컴쿠폰", "2024 새해 쿠폰선물"].randomElement()!
-            cell.hashTagTextLabel.text = randomHashTags.randomElement()!
-            cell.dateTextLabel.text = randomDates.randomElement()
-            
-            // 북마크 버튼 설정
-            cell.heartImageView.addAction(UIAction { _ in
-                self.isBookMarked.toggle()
-                cell.heartImageView.setImage(self.isBookMarked ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
-            }, for: .touchUpInside)
-            
-            return cell
-    }
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SubViewCollectionViewCell", for: indexPath) as? SubViewCollectionViewCell else { return UICollectionViewCell() }
+                let isBookMarked: Bool = isBookMarks[indexPath.row]
+
+                // 섞인 이미지 설정
+                cell.mainImageView.image = UIImage(named: randomImageNames[indexPath.row])
+                cell.mainTextLabel.text = ["인터파크 쇼핑 앱 설치", "10% 무제한 할인 쿠폰", "인터라켄 3% 웰컴쿠폰", "2024 새해 쿠폰선물"].randomElement()!
+                cell.hashTagTextLabel.text = ["#3000원 #누구나", "#만원이상 #몇번이든", "#중복적용 #누구나", "#네이버쇼핑 5~20%"].randomElement()!
+                cell.dateTextLabel.text = "24.02.01 ~ 24.04.01"
+
+                cell.heartImageView.setImage(isBookMarked ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
+
+                cell.heartImageView.removeAction(identifiedBy: .init("toggle heart"), for: .touchUpInside)
+        cell.heartImageView.addAction(UIAction(identifier: .init("toggle heart"), handler: { _ in
+                    self.isBookMarks[indexPath.row].toggle()
+                    let newState = self.isBookMarks[indexPath.row]
+                    cell.heartImageView.setImage(newState ? UIImage(named: "heartfull") : UIImage(named: "heart"), for: .normal)
+                }), for: .touchUpInside)
+
+
+                return cell
+        }
 
     override func setupInterface() {
         super.setupInterface()
