@@ -128,11 +128,11 @@
 - 17.5
 
 # 개발자
-- 구영진
+- 구영진 - https://github.com/skdmlp
 - 권희철 - https://github.com/khc1104
-- 박범규
-- 배문성
-- 최승호
+- 박범규 - https://github.com/parkbeomgyu
+- 배문성 - https://github.com/ActDine
+- 최승호 - https://github.com/sts06017
 
 # 라이선스
 Licensed under the [MIT](LICENSE) license.
