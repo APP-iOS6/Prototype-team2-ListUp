@@ -19,7 +19,7 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
         let scrollView = UIScrollView()
         scrollView.contentSize = CGSize(width: 700, height: 20)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsHorizontalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = false
         scrollView.backgroundColor = .systemBackground
         return scrollView
@@ -28,7 +28,7 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
     private lazy var topFilteringStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 0
+        stackView.spacing = 20
         stackView.distribution = .fillEqually
         stackView.backgroundColor = .systemBackground
         stackView.translatesAutoresizingMaskIntoConstraints = false

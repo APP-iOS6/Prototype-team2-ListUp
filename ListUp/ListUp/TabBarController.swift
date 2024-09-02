@@ -21,16 +21,16 @@ class TabBarController: UITabBarController{
     
     private func buildViewController(){
         let mainViewController: UIViewController = MainViewController()
-        mainViewController.tabBarItem = UITabBarItem(title: "", image: .tabhome.withRenderingMode(.alwaysOriginal), selectedImage: .tabhome)
+        mainViewController.tabBarItem = UITabBarItem(title: "", image: .tabhome, selectedImage: .tabhome)
 
         let subViewController: UIViewController = SubViewController()
-        subViewController.tabBarItem = UITabBarItem(title: "", image: .tablist.withRenderingMode(.alwaysOriginal), selectedImage: .tablist)
+        subViewController.tabBarItem = UITabBarItem(title: "", image: .tablist, selectedImage: .tablist)
 
         let bookmarkViewController: UIViewController = BookmarkViewController()
-        bookmarkViewController.tabBarItem = UITabBarItem(title: "", image: .tabheart.withRenderingMode(.alwaysOriginal), selectedImage: .tabheart)
+        bookmarkViewController.tabBarItem = UITabBarItem(title: "", image: .tabheart, selectedImage: .tabheart)
         
         let alarmViewContorller: UIViewController = AlarmViewController()
-        alarmViewContorller.tabBarItem = UITabBarItem(title: "", image: .tabalarm.withRenderingMode(.alwaysOriginal), selectedImage: .tabalarm)
+        alarmViewContorller.tabBarItem = UITabBarItem(title: "", image: .tabalarm, selectedImage: .tabalarm)
 
         viewControllers = [mainViewController, subViewController, bookmarkViewController,alarmViewContorller ]
     }

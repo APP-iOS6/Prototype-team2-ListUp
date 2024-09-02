@@ -35,7 +35,7 @@ class AlarmViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     
     private let completeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("알람완료", for: .normal)
+        button.setTitle("알람예시", for: .normal)
         button.setTitleColor(.white, for: .normal)
         if let gradientImage = UIImage(named: "gradiant") {
             button.setBackgroundImage(gradientImage, for: .normal)
