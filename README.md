@@ -56,8 +56,6 @@
 <img width="659" alt="스크린샷 2024-08-28 오전 9 51 41" src="https://github.com/user-attachments/assets/33e5549b-9168-40d9-979a-eae5bd51d5ad">
 
 ## 화면
-구동화면
-![Simulator_Screen_Recording_-_iPhone_15_Pro_-_2024-09-02_at_21 45 39](https://github.com/user-attachments/assets/dc7ff50f-ead1-4870-ac1e-073f46a8287c)
 |메인페이지|필터링 시트|
 |----|----|
 |<img width="332" alt="스크린샷 2024-09-02 오후 3 38 39" src="https://github.com/user-attachments/assets/cbcc472b-6fea-4da7-a16f-3d5ec2a9e4a5">|<img width="254" alt="스크린샷 2024-08-28 오전 10 07 56" src="https://github.com/user-attachments/assets/14b06de6-4b21-4743-9af3-bdd3c702147b">|
