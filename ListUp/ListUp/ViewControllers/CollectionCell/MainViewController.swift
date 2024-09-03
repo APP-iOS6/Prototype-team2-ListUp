@@ -18,7 +18,7 @@ class MainViewController: BaseViewController {
     
     lazy var mainTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
