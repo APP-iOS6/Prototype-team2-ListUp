@@ -1,6 +1,5 @@
 
 ![icon1](https://github.com/user-attachments/assets/878301e1-34ee-481a-b93e-3d8f0ffa97d9)
-![Simulator_Screen_Recording_-_iPhone_15_Pro_-_2024-09-02_at_21 45 39](https://github.com/user-attachments/assets/dc7ff50f-ead1-4870-ac1e-073f46a8287c)
 
 # 앱 이름
 리스트업
@@ -67,7 +66,7 @@
 |즐겨찾기 페이지|검색 페이지|
 |<img width="336" alt="스크린샷 2024-09-02 오후 3 38 15" src="https://github.com/user-attachments/assets/7615960e-2588-4494-a91f-d5c9f359e269">|
 |![스크린샷 2024-08-29 오후 7 46 40](https://github.com/user-attachments/assets/87f961af-0abe-4be5-8bf7-bc01eaf45d1a)|
-
+![Simulator_Screen_Recording_-_iPhone_15_Pro_-_2024-09-02_at_21 45 39](https://github.com/user-attachments/assets/dc7ff50f-ead1-4870-ac1e-073f46a8287c)
 # 피드백 및 개선 사항
 
 ## 피드백
