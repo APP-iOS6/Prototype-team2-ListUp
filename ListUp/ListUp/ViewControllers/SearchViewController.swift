@@ -16,7 +16,6 @@ class SearchViewController: UIViewController{
             self.navigationController?.popViewController(animated: true)
         }, for: .editingDidEnd)
         searchBar.searchTextField.delegate = self
-//        searchBar.inputAccessoryView = toolbar
         return searchBar
     }()
     
@@ -29,21 +28,13 @@ class SearchViewController: UIViewController{
         return imageView
     }()
     
-//    lazy var toolbar: UIToolbar = {
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//        let doneButton = UIBarButtonItem(title: "완료", style: .done, target: SearchViewController.self, action: #selector(doneButtonTapped))
-//        toolbar.setItems([flexible, doneButton], animated: true)
-//        return toolbar
-//    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         self.navigationItem.titleView = searchBar
         view.addSubview(imageView)
-        
+        navigationController?.isNavigationBarHidden = false
+
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -51,11 +42,6 @@ class SearchViewController: UIViewController{
             imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
     }
-    
-//    @objc func doneButtonTapped(){
-//        self.searchBar.resignFirstResponder()
-//    }
-//    
 }
 
 extension SearchViewController: UITextFieldDelegate{

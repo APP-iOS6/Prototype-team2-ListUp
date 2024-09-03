@@ -24,6 +24,12 @@ class DetailViewController: BaseViewController {
         setupLayOut()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+
+    }
+    
     // BaseViewController의 setupInterface() 오버라이드
     override func setupInterface() {
         super.setupInterface()

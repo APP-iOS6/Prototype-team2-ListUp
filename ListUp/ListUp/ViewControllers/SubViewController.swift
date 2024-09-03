@@ -12,7 +12,7 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
     private var randomHashTags: [String] = []  // 섞인 해시태그를 저장할 배열
     private var randomDates: [String] = []  // 섞인 날짜를 저장할 배열
     private var randomURLs: [URL] = [] // 섞인 URL들을 저장할 배열
-    private var topButtonStates: [Bool] = Array(repeating: false, count: 7)
+    private var topButtonStates: [Bool] = [true, false, false, false, false, false, false]
     var topFilteringButtons: [UIButton] = []
 
     private lazy var topFilteringScrollView: UIScrollView = {
@@ -131,11 +131,10 @@ class SubViewController: BaseViewController, UICollectionViewDelegate, UICollect
         topFilteringScrollView.addSubview(topFilteringStackView)
         
         // 상단 필터링 버튼들 추가
-        
         for i in 0...6 {
             let button = UIButton()
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setImage(UIImage(named: "filter\(i+1)"), for: .normal)
+            button.setImage(topButtonStates[i] ? UIImage(named: "filterred\(i+1)") : UIImage(named: "filter\(i+1)"), for: .normal)
             button.imageView?.contentMode = .scaleAspectFill
             button.addAction(UIAction { _ in
                 self.topButtonTapped(index: i)

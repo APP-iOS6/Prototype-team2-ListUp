@@ -9,20 +9,10 @@ class BaseViewController: UIViewController {
         return stackView
     }()
     
-    lazy var searchView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = .group47
-        imageView.contentMode = .scaleAspectFit
-        imageView.isUserInteractionEnabled = true
-        
-        //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAlarm)))
-        return imageView
-    }()
-    
     lazy var searchButtonView: UIButton = {
         let button = UIButton()
-        button.setImage(.group47, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
+        button.setImage(.group318, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.translatesAutoresizingMaskIntoConstraints = false
         button.addAction(UIAction{_ in
             self.navigationController?.pushViewController(SearchViewController(), animated: true)
@@ -101,6 +91,11 @@ class BaseViewController: UIViewController {
         setupLayOut()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     // 기본 구현: 서브클래스에서 필요에 따라 오버라이드
     public func setupInterface() {
         view.addSubview(stackView)
@@ -117,7 +112,6 @@ class BaseViewController: UIViewController {
     public func setupLayOut() {
         let safeArea = view.safeAreaLayoutGuide
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        searchView.translatesAutoresizingMaskIntoConstraints = false
         tabStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -127,8 +121,7 @@ class BaseViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             
-            // searchView Constraints
-            searchView.heightAnchor.constraint(equalToConstant: 50), // Fixed height for search view
+            // searchButtonView Constraints
             searchButtonView.heightAnchor.constraint(equalToConstant: 50),
             
             // tabStackView Constraints
