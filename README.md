@@ -58,7 +58,7 @@
 ## 화면
 |메인페이지|필터링 시트|
 |----|----|
-|<img width="332" alt="스크린샷 2024-09-02 오후 3 38 39" src="https://github.com/user-attachments/assets/cbcc472b-6fea-4da7-a16f-3d5ec2a9e4a5">|
+|<img width="332" alt="스크린샷 2024-09-02 오후 3 38 39" src="https://github.com/user-attachments/assets/cbcc472b-6fea-4da7-a16f-3d5ec2a9e4a5">||
 |<img width="254" alt="스크린샷 2024-08-28 오전 10 07 56" src="https://github.com/user-attachments/assets/14b06de6-4b21-4743-9af3-bdd3c702147b">|
 |리스트 페이지|알림페이지|
 |<img width="332" alt="스크린샷 2024-09-02 오후 3 38 06" src="https://github.com/user-attachments/assets/4fbeffc9-1c61-4c58-8b4c-df5d113a21be">|
