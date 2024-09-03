@@ -5,8 +5,7 @@
 리스트업
 
 ## 구동 화면
-
-![Simulator Screen Recording - iPhone 15 Pro - 2024-08-29 at 19 45 31](https://github.com/user-attachments/assets/feb8b141-1471-4f3e-8729-97c1b80b726a)
+![Simulator_Screen_Recording_-_iPhone_15_Pro_-_2024-09-02_at_21 45 39](https://github.com/user-attachments/assets/f8071d04-89f6-4349-80e2-7af8a22eaff6)
 
 # ADS 및 페르소나 탐구
 
